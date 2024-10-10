@@ -1,0 +1,14 @@
+@startuml
+actor User
+
+User -> HomeActivity : Clicks "Create Event"
+HomeActivity -> CreateEventFragment : Navigate to create event
+CreateEventFragment -> User : Displays event creation form
+User -> CreateEventFragment : Fills in event details
+CreateEventFragment -> EventsRepository : addEventToDB(userUID, description, startTime, duration)
+EventsRepository -> "Firebase Firestore" : Save event data
+"Firebase Firestore" --> EventsRepository : Confirmation
+EventsRepository --> CreateEventFragment : Success response
+CreateEventFragment -> HomeActivity : Navigate back
+
+@enduml

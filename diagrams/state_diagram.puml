@@ -1,0 +1,10 @@
+@startuml
+
+[*] --> Created
+Created --> Saved : Save Event
+Saved --> Updated : Edit Event
+Updated --> Saved : Save Changes
+Saved --> Deleted : Delete Event
+Deleted --> [*]
+
+@enduml

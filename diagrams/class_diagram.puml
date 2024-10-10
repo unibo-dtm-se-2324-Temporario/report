@@ -1,0 +1,73 @@
+@startuml
+
+package "Events" {
+    class Event {
+        + String description
+        + LocalDateTime startTime
+        + int duration
+        + String key
+    }
+
+    class EventsRepository {
+        + addEventToDB(userUID: String, description: String, startTime: LocalDateTime, duration: int)
+        + getEventsFromDB(userUID: String)
+        + editEvent(eventsList: List<Event>, key: String, userUID: String, description: String, date: LocalDateTime, duration: int)
+        + deleteEventFromDB(key: String)
+    }
+
+    class CustomAdapter {
+        + update(events: List<Event>)
+    }
+}
+
+package "Home" {
+    class CreateEventFragment {
+        + onViewCreated(view: View, savedInstanceState: Bundle)
+    }
+
+    class EditEventFragment {
+        + onViewCreated(view: View, savedInstanceState: Bundle)
+    }
+
+    class ListEventsFragment {
+        + onViewCreated(view: View, savedInstanceState: Bundle)
+    }
+
+    class HomeActivity {
+        + onCreate(savedInstanceState: Bundle)
+        + getEvents(uid: String)
+    }
+
+}
+
+package "Login" {
+    class LoginFragment {
+        + onLoginSuccess(user: User)
+    }
+
+    class RegisterFragment {
+        + onRegisterSuccess(user: User)
+    }
+
+    class SplashFragment {
+        + checkUserLoggedIn()
+    }
+
+    class MainActivity {
+        + onCreate(savedInstanceState: Bundle)
+    }
+}
+
+Events -[hidden]> Login
+Event --> EventsRepository : Uses
+EventsRepository --> CustomAdapter : Provides Data
+EventsRepository <--> HomeActivity : Provides/Receives data
+HomeActivity <-- CreateEventFragment : Sends user input
+HomeActivity <-- EditEventFragment : Sends user input
+HomeActivity --> ListEventsFragment : Navigates
+MainActivity --> SplashFragment : Starts
+SplashFragment --> LoginFragment : Navigates to
+LoginFragment --> HomeActivity : Navigates to
+LoginFragment <--> RegisterFragment : Authenticate user
+
+@enduml

@@ -1,0 +1,28 @@
+@startuml
+title "Components Diagram"
+
+package "Presentation Layer" {
+    [Create Event] 
+    [Edit Event] 
+    [List Events] 
+    [Login/Register]
+}
+
+package "Domain Layer" {
+    [Event Model] 
+}
+
+package "Data Layer" {
+    [Events Repository] 
+    [Firebase Firestore] 
+    [Firebase Authentication] 
+}
+
+[Create Event] --> [Event Model] : creates
+[Edit Event] --> [Event Model] : edits
+[List Events] --> [Event Model] : retrieves
+
+[Event Model] --> [Events Repository] : interacts
+[Events Repository] --> [Firebase Firestore] : stores/retrieves
+[Login/Register] --> [Firebase Authentication] : authenticates user
+@enduml
