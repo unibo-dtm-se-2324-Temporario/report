@@ -20,6 +20,8 @@ The app follows a **layered architecture**, which promotes a clear separation of
 
 ## Modelling
  
+The **domain** on which Temporario is focused is time management, being a calendar app with the main functionalities relating to events, dates and scheduling. Its **bounded context** is the management of events (create, delete, edit).
+
 The **domain model** of the calendar application is designed to encapsulate the core business logic and data associated with events, ensuring that the application can effectively manage, display, and manipulate calendar events. This model is built using principles from Domain-Driven Design (DDD), focusing on clarity, maintainability, and separation of concerns.
 
 ![Class diagram](../../diagrams/class_diagram_image.png)
@@ -74,7 +76,9 @@ The state diagram above outlines the lifecycle of an event within the system. In
 
 ## Data-related aspects
 
-1. The application utilizes **Firebase Firestore** as its database. The data schema for the events collection is structured as follows:
+1. Data persistence technologies - The primary data persistence technology used in the application is Firebase Realtime Database, a NoSQL cloud database provided by Google. It is chosen for its scalability, real-time data synchronization, and seamless integration with Firebase Authentication, allowing for secure user management.
+
+2. Events collection structure - Each event in the database follows a specific schema that ensures consistent storage and retrieval of event information:
 
     - Event Document
         - key: String (unique identifier)
@@ -82,7 +86,5 @@ The state diagram above outlines the lifecycle of an event within the system. In
         - startTime: Timestamp (date and time when the event starts)
         - duration: Number (duration of the event in hours)
         - userUID: String (identifier of the user who created the event)
-
-2. Data persistence technologies - The primary data persistence technology used in the application is Firebase Firestore, a NoSQL cloud database provided by Google. Firestore is chosen for its scalability, real-time data synchronization, and seamless integration with Firebase Authentication, allowing for secure user management.
 
 3. Firebase Authentication is used to handle user sign-in and login processes, ensuring that user data is stored securely and accessible only to authorized users.

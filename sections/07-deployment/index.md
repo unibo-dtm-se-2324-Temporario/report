@@ -6,7 +6,7 @@ nav_order: 8
 
 # Deployment
 
-Since the application is released as an Android APK file, deployment is straightforward for users who have an Android device. 
+Since the application is released as an Android APK file, deployment is straightforward for users who have an Android device. The APK published on GitHub Releases as a result of the CI/CD piepeline is already ready for installation. The simple steps that need to be followed are:
 
 1. Download the APK - users can find the file on the GitHub Releases page.
 2. Install the APK - open the APK by tapping and confirm the installation.

@@ -16,7 +16,9 @@ Until the finalization of this project, versions from 1.0.0 to 1.0.7 were releas
 
 ## Choice of the license
 
-For the scope of this project, the **MIT License** was used, because it is a widely accepted and used standard in the open-source community. It is short and easy to understand both for developers and other users, making it a good fit.
+For the scope of this project, the **MIT License** was used. It is one of the most permissive open-source licenses available, permitting any person to use the software for any purpose, modify the source code, and distribute and commercialize the original or modified versions. When redistributing, the original MIT License must be included together with a copyright notice. The license does not guarantee any warranty, the original developers not being liable for fixing any bugs or issues that could arise. 
+
+I chose this license because the project is developed for educational purposes, without the intention of making it a "real" product. If anybody would like to use or modify the code I strongly encourage them to, and I will not be liable for any issues that might appear. 
 
 ## Choice of the versioning schema
 

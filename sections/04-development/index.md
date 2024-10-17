@@ -14,7 +14,7 @@ To maintain clarity in the project's history, the commit messages followed the C
 
 ## Implementation details
 
-The biggest "surprise" encountered in the development of this project was the fact that the default CalendarView offered by the Android SDK is not so easily personalizable. After researching multiple possibilities, I chose to continue the development using the CalendarView offered by     `applandeo`, which offered more options for customization. Yet still I could not create the exact UI I wanted. 
+The biggest "surprise" encountered in the development of this project was the fact that the default CalendarView offered by the Android SDK is not so easily personalizable. After researching multiple possibilities, I chose to continue the development using the CalendarView offered by `applandeo`, which offered more options for customization. Yet still I could not create the exact UI I wanted. 
 
 In the end, the app reached its goal. There is still a lot of room for improvement of the interface, but this work exceeds the scope of this poject. 
 

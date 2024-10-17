@@ -6,9 +6,9 @@ nav_order: 11
 
 # Developer guide
 
-## Setting up the development environment
+To contribute to or extend Temporario, follow these steps to set up your development environment, build, and deploy the app.
 
-To contribute to or extend Temporario, follow these steps to set up your development environment:
+## Setting up the development environment
 
 Prerequisites:
 - Java JDK (version 17 or higher)
@@ -26,6 +26,21 @@ Open the project in Android Studio.
 Dependencies:
 - The app uses Gradle for dependency management. All necessary libraries and plugins are defined in the `build.gradle` files (both project-level and app-level).
 - To sync the dependencies, open the project in Android Studio and click Sync Now when prompted or run `./gradlew build`.
+
+## Configuring the Firebase APIs
+
+**Firebase Realtime Database** is the database solution for storing and syncing data in real-time. 
+**Firebase Authentication** is used to manage user authentication. 
+Below are the steps to configure Firebase:
+
+1. Go to the [Firebase Console](https://console.firebase.google.com/) and click "Create a project". Follow the steps to create a new Firebase project associated with the app.
+2. Once the project is created, go to "Project settings" and click "Add app" in the "Your apps" section. Register the Android project by providing the *package name* found in the `AndroidManifest.xml` file. 
+3. Download the generated `google-services.json` file and place it in the `app/` directory of the Android project, then make sure that the dependencies are included in the app's `build.gradle` file. For the development of the current release of Temporario the following versions were used:
+    - Firebase Realtime Database: `com.google.firebase:firebase-database-ktx:21.0.0`;
+    - Firebase Authentication: `com.google.firebase:firebase-auth:23.0.0`.
+4. To enable Firebase Authentication, go to the Console and navigate to Authentication. Click on "Sign-in method" and enable authentication via Email/Password and Google Sign-In.
+5. To enable the Realtime Database click on "Create database" and set its rules.
+6. Build and run the app in Android Studio to make sure that it connects to Firebase properly. 
 
 ## Building and running the app
 
